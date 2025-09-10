@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matias Abalo - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Matias Abalo</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#inicio" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#proyectos" class="nav-link" data-es="Proyectos" data-en="Projects">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#servicios" class="nav-link" data-es="Servicios" data-en="Services">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contacto" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <button id="language-toggle" class="language-btn">
+                        <i class="fas fa-globe"></i>
+                        <span>EN</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span data-es="Hola, soy" data-en="Hi, I'm">Hola, soy</span> <span class="highlight">Matias Abalo</span>
+                    </h1>
+                    <h2 class="hero-subtitle" data-es="Desarrollador en Python y Web" data-en="Python & Web Developer">Desarrollador en Python y Web</h2>
+                    <p class="hero-description" data-es="Ayudo a emprendedores y negocios a automatizar procesos, crear tiendas online y desarrollar aplicaciones SaaS personalizadas." data-en="I help entrepreneurs and businesses automate processes, build online stores and develop custom SaaS applications.">
+                        Ayudo a emprendedores y negocios a <strong>automatizar procesos, crear tiendas online y desarrollar aplicaciones SaaS personalizadas</strong>.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#proyectos" class="btn btn-primary" data-es="Ver Proyectos" data-en="View Projects">Ver Proyectos</a>
+                        <a href="#contacto" class="btn btn-secondary" data-es="Contactar" data-en="Contact">Contactar</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-photo">
+                        <img src="maty.jpg" alt="Matias Abalo - Desarrollador" class="profile-image">
+                    </div>
+                    <div class="code-animation">
+                        <div class="code-line" id="line1">
+                            <span class="cursor">|</span>
+                        </div>
+                        <div class="code-line" id="line2">
+                            <span class="cursor">|</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="projects">
+        <div class="container">
+            <h2 class="section-title" data-es="🚀 Proyectos Destacados" data-en="🚀 Featured Projects">🚀 Proyectos Destacados</h2>
+            <div class="projects-grid">
+                <!-- Project 1 - Tienda Online -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title" data-es="Tienda Whip - Helmets" data-en="Whip - Helmets Store">Tienda Whip - Helmets</h3>
+                        <div class="project-links">
+                            <a href="https://whip-helmets.up.railway.app/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="https://github.com/Abalito04/WHIP---HELMETS" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description" data-es="E-commerce completo con carrito de compras y pasarela de pagos para venta de cascos." data-en="Complete e-commerce with shopping cart and payment gateway for helmet sales.">
+                        E-commerce completo con carrito de compras y pasarela de pagos para venta de cascos.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Django/Flask</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span data-es="Demuestra conocimiento en desarrollo de tiendas online" data-en="Shows expertise in online store development">Demuestra conocimiento en desarrollo de tiendas online</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 - SaaS -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title" data-es="SaaS de Gestión de Restaurantes" data-en="Restaurant Management SaaS">SaaS de Gestión de Restaurantes</h3>
+                        <div class="project-links">
+                            <a href="https://app-resto.up.railway.app/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="https://github.com/Abalito04/App-resto" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description" data-es="Aplicación web completa para administrar restaurantes con gestión de usuarios, menús y pedidos." data-en="Complete web application to manage restaurants with user management, menus and orders.">
+                        Aplicación web completa para administrar restaurantes con gestión de usuarios, menús y pedidos.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Flask/Django</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Bootstrap</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span data-es="Demuestra capacidad de crear SaaS desde cero" data-en="Shows ability to build SaaS from scratch">Demuestra capacidad de crear SaaS desde cero</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Scraper -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title" data-es="Scraper de MercadoLibre" data-en="MercadoLibre Scraper">Scraper de MercadoLibre</h3>
+                        <div class="project-links">
+                            <a href="https://github.com/Abalito04/Scraper-MercadoLibre" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description" data-es="Herramienta en Python para extraer precios, títulos y enlaces de productos de MercadoLibre." data-en="Python tool to extract prices, titles and links from MercadoLibre products.">
+                        Herramienta en Python para extraer precios, títulos y enlaces de productos de MercadoLibre.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Web Scraping</span>
+                        <span class="tech-tag">Excel/CSV</span>
+                    </div>
+                    <div class="project-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span data-es="Entrega datos en Excel/CSV listos para análisis" data-en="Delivers data in Excel/CSV ready for analysis">Entrega datos en Excel/CSV listos para análisis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2 class="section-title" data-es="💼 Servicios que Ofrezco" data-en="💼 Services I Offer">💼 Servicios que Ofrezco</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="service-title" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</h3>
+                    <p class="service-description" data-es="Desarrollo completo de sitios web, tiendas online y aplicaciones web personalizadas." data-en="Complete development of websites, online stores and custom web applications.">
+                        Desarrollo completo de sitios web, tiendas online y aplicaciones web personalizadas.
+                    </p>
+                    <ul class="service-features">
+                        <li data-es="Tiendas online con carrito de compras" data-en="Online stores with shopping cart">Tiendas online con carrito de compras</li>
+                        <li data-es="Sitios web responsivos" data-en="Responsive websites">Sitios web responsivos</li>
+                        <li data-es="Integración de pagos" data-en="Payment integration">Integración de pagos</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="service-title" data-es="Aplicaciones SaaS" data-en="SaaS Applications">Aplicaciones SaaS</h3>
+                    <p class="service-description" data-es="Sistemas personalizados como CRM, gestión de negocios y sistemas de reservas." data-en="Custom systems like CRM, business management and booking systems.">
+                        Sistemas personalizados como CRM, gestión de negocios y sistemas de reservas.
+                    </p>
+                    <ul class="service-features">
+                        <li data-es="Desarrollo a medida" data-en="Custom development">Desarrollo a medida</li>
+                        <li data-es="Escalabilidad garantizada" data-en="Guaranteed scalability">Escalabilidad garantizada</li>
+                        <li data-es="Soporte técnico" data-en="Technical support">Soporte técnico</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spider"></i>
+                    </div>
+                    <h3 class="service-title" data-es="Web Scraping" data-en="Web Scraping">Web Scraping</h3>
+                    <p class="service-description" data-es="Extracción de datos de Amazon, MercadoLibre, Google Maps y otras plataformas." data-en="Data extraction from Amazon, MercadoLibre, Google Maps and other platforms.">
+                        Extracción de datos de Amazon, MercadoLibre, Google Maps y otras plataformas.
+                    </p>
+                    <ul class="service-features">
+                        <li data-es="Datos estructurados en Excel/CSV" data-en="Structured data in Excel/CSV">Datos estructurados en Excel/CSV</li>
+                        <li data-es="Automatización de procesos" data-en="Process automation">Automatización de procesos</li>
+                        <li data-es="Análisis de competencia" data-en="Competitor analysis">Análisis de competencia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-es="📩 Contacto" data-en="📩 Contact">📩 Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 data-es="¿Tienes un proyecto en mente?" data-en="Do you have a project in mind?">¿Tienes un proyecto en mente?</h3>
+                    <p data-es="Estoy disponible para ayudarte a hacer realidad tus ideas. Contáctame y hablemos sobre tu proyecto." data-en="I'm available to help you bring your ideas to life. Contact me and let's talk about your project.">Estoy disponible para ayudarte a hacer realidad tus ideas. Contáctame y hablemos sobre tu proyecto.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4 data-es="Email" data-en="Email">Email</h4>
+                                <a href="mailto:abalito95@gmail.com">abalito95@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <h4 data-es="GitHub" data-en="GitHub">GitHub</h4>
+                                <a href="https://github.com/Abalito04" target="_blank">Abalito04</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Tu nombre" data-placeholder-es="Tu nombre" data-placeholder-en="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Tu email" data-placeholder-es="Tu email" data-placeholder-en="Your email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Asunto" data-placeholder-es="Asunto" data-placeholder-en="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Tu mensaje" data-placeholder-es="Tu mensaje" data-placeholder-en="Your message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-es="Enviar Mensaje" data-en="Send Message">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p data-es="&copy; 2024 Matias Abalo. Todos los derechos reservados." data-en="&copy; 2024 Matias Abalo. All rights reserved.">&copy; 2024 Matias Abalo. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/Abalito04" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:abalito95@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
