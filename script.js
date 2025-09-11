@@ -74,7 +74,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Contact form handling with SendGrid
+// EmailJS Configuration
+const EMAILJS_CONFIG = {
+    PUBLIC_KEY: '79cmvTkckyQwZrWM7',
+    SERVICE_ID: 'service_vbzkn64',
+    TEMPLATE_ID: 'template_gb96yxp'
+};
+
+// Initialize EmailJS
+emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+
+// Contact form handling with EmailJS
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
@@ -90,25 +100,24 @@ if (contactForm) {
         
         // Get form data
         const formData = new FormData(contactForm);
-        const data = {
+        const templateParams = {
             name: formData.get('name'),
             email: formData.get('email'),
             subject: formData.get('subject'),
             message: formData.get('message'),
-            language: currentLanguage
+            language: currentLanguage,
+            to_email: 'abalito95@gmail.com' // Tu email donde recibirás los mensajes
         };
         
         try {
-            // Send to your backend endpoint
-            const response = await fetch('/api/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            });
+            // Send email using EmailJS
+            const response = await emailjs.send(
+                EMAILJS_CONFIG.SERVICE_ID,
+                EMAILJS_CONFIG.TEMPLATE_ID,
+                templateParams
+            );
             
-            if (response.ok) {
+            if (response.status === 200) {
                 const successMessage = currentLanguage === 'es' 
                     ? '¡Mensaje enviado correctamente! Te contactaré pronto.' 
                     : 'Message sent successfully! I will contact you soon.';
