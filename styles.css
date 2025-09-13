@@ -9,6 +9,8 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
 body {
@@ -17,6 +19,7 @@ body {
     color: #333;
     background-color: #ffffff;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .container {
@@ -66,6 +69,8 @@ body {
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .nav-link:hover {
@@ -100,6 +105,8 @@ body {
     display: flex;
     align-items: center;
     gap: 6px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .language-btn:hover {
@@ -115,6 +122,8 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
 }
 
 .bar {
@@ -123,6 +132,19 @@ body {
     background-color: #333;
     margin: 3px 0;
     transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Hero Section */
@@ -202,11 +224,14 @@ body {
     border: none;
     cursor: pointer;
     font-size: 1rem;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .btn-primary {
     background-color: #10b981;
     color: white;
+    text-decoration: none;
 }
 
 .btn-primary:hover {
@@ -219,6 +244,7 @@ body {
     background-color: transparent;
     color: white;
     border: 2px solid white;
+    text-decoration: none;
 }
 
 .btn-secondary:hover {
@@ -333,6 +359,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     border: 1px solid #e5e7eb;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .project-card:hover {
@@ -357,12 +384,15 @@ body {
 .project-links {
     display: flex;
     gap: 0.5rem;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .project-link {
     color: #6b7280;
     font-size: 1.2rem;
     transition: color 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .project-link:hover {
@@ -420,6 +450,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .service-card:hover {
@@ -505,12 +536,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .contact-method {
     display: flex;
     align-items: center;
     gap: 1rem;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .contact-method i {
@@ -523,17 +556,21 @@ body {
     justify-content: center;
     color: white;
     font-size: 1.2rem;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .contact-method h4 {
     font-weight: 600;
     margin-bottom: 0.25rem;
     color: #1f2937;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .contact-method a {
     color: #10b981;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .contact-method a:hover {
@@ -542,6 +579,7 @@ body {
 
 .contact-method span {
     color: #6b7280;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* Contact Form */
@@ -550,10 +588,12 @@ body {
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .form-group {
     margin-bottom: 1.5rem;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .form-group input,
@@ -565,6 +605,10 @@ body {
     font-size: 1rem;
     transition: border-color 0.3s ease;
     font-family: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .form-group input:focus,
@@ -576,6 +620,7 @@ body {
 .form-group textarea {
     resize: vertical;
     min-height: 120px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* Footer */
@@ -583,27 +628,48 @@ body {
     background-color: #1f2937;
     color: white;
     padding: 2rem 0;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .footer-links {
     display: flex;
     gap: 1rem;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .footer-links a {
     color: white;
     font-size: 1.5rem;
     transition: color 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-links a:hover {
     color: #10b981;
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+.footer-links a:active {
+    background-color: rgba(16, 185, 129, 0.2);
+    transform: scale(0.95);
+}
+
+.footer-links a:focus {
+    outline: 2px solid #10b981;
+    outline-offset: 2px;
 }
 
 /* Animations */
@@ -628,6 +694,25 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-content {
+        gap: 3rem;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .profile-image {
+        width: 350px;
+        height: 350px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -664,6 +749,14 @@ body {
         font-size: 2.5rem;
     }
 
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
     .profile-image {
         width: 250px;
         height: 250px;
@@ -672,6 +765,12 @@ body {
     .hero-buttons {
         justify-content: center;
         flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.95rem;
     }
 
     .contact-content {
@@ -688,10 +787,20 @@ body {
     .projects-grid,
     .services-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .section-title {
         font-size: 2rem;
+    }
+
+    .code-animation {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .code-line {
+        font-size: 1rem;
     }
 }
 
@@ -700,17 +809,43 @@ body {
         padding: 0 15px;
     }
 
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .hero-container {
+        padding: 0 15px;
+    }
+
     .hero-title {
         font-size: 2rem;
+        line-height: 1.1;
     }
 
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
     }
 
     .profile-image {
         width: 200px;
         height: 200px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 250px;
     }
 
     .project-card,
@@ -719,9 +854,87 @@ body {
         padding: 1.5rem;
     }
 
-    .btn {
-        padding: 10px 20px;
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .code-animation {
+        padding: 1rem;
         font-size: 0.9rem;
+        min-height: 100px;
+    }
+
+    .code-line {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+    }
+
+    .service-title {
+        font-size: 1.3rem;
+    }
+
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .contact-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .contact-method {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .contact-method i {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px 14px;
+        font-size: 0.95rem;
+    }
+
+    .language-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .profile-image {
+        width: 180px;
+        height: 180px;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .code-animation {
+        font-size: 0.8rem;
+    }
+
+    .code-line {
+        font-size: 0.8rem;
     }
 }
 
