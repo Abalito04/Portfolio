@@ -417,6 +417,14 @@ body {
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
+.qr-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
 .project-description {
     color: #6b7280;
     margin-bottom: 1.5rem;
