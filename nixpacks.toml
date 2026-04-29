@@ -1,5 +1,5 @@
-[phases.build]
-cmds = []
+[phases.install]
+cmds = ["npm install -g serve"]
 
 [start]
-cmd = "python3 -m http.server $PORT"
+cmd = "serve -s . -l $PORT"
