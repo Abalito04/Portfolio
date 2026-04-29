@@ -58,15 +58,6 @@ open index.html   # macOS
 
 ---
 
-## 📩 EmailJS Setup
-
-The contact form uses EmailJS to send messages directly to my inbox without a server.
-See [`README-EmailJS.md`](README-EmailJS.md) for the full setup guide including:
-- How to create a free EmailJS account
-- How to configure the service ID, template ID, and public key
-- How to test the contact form locally
-
----
 
 ## 📄 License
 
