@@ -21,19 +21,6 @@
 
 ---
 
-## 🗂️ Project Structure
-
-```
-Portfolio/
-├── index.html        # Main page
-├── styles.css        # All styles
-├── script.js         # Interactivity & EmailJS integration
-├── maty.jpg          # Profile photo
-└── README-EmailJS.md # EmailJS setup guide
-```
-
----
-
 ## 🚀 Featured Projects (showcased in the portfolio)
 
 | Project | Description | Tech | Demo |
