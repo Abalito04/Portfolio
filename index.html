@@ -611,123 +611,114 @@
     <hr class="divider">
 
     <!-- PROJECTS -->
-    <section class="section" id="proyectos" aria-labelledby="projects-title">
-      <div class="container">
-        <p class="section-label i18n" data-es="// proyectos" data-en="// projects">// proyectos</p>
-        <h2 class="section-title i18n" id="projects-title"
-            data-es="Proyectos destacados" data-en="Featured projects">Proyectos destacados</h2>
-        <p class="section-desc i18n"
-           data-es="Aplicaciones reales en producción, construidas de principio a fin."
-           data-en="Real applications in production, built end-to-end.">
-          Aplicaciones reales en producción, construidas de principio a fin.
-        </p>
-        <div class="projects-grid">
+<section class="section" id="proyectos" aria-labelledby="projects-title">
+  <div class="container">
+    <p class="section-label i18n" data-es="// proyectos" data-en="// projects">// proyectos</p>
+    <h2 class="section-title i18n" id="projects-title"
+        data-es="Proyectos destacados" data-en="Featured projects">Proyectos destacados</h2>
+    <p class="section-desc i18n"
+       data-es="Aplicaciones reales en producción, construidas de principio a fin."
+       data-en="Real applications in production, built end-to-end.">
+      Aplicaciones reales en producción, construidas de principio a fin.
+    </p>
+    <div class="projects-grid">
 
-          <!-- Featured -->
-          <article class="project-card featured reveal" aria-label="WHIP Helmets project">
-            <div class="project-header">
-              <div class="project-header-left">
-                <div class="project-live-badge">
-                  <span class="dot" aria-hidden="true"></span>
-                  <span class="i18n" data-es="En producción" data-en="Live in production">En producción</span>
-                </div>
-                <h3 class="project-title">Whip - Helmets</h3>
-              </div>
+      <!-- Featured: Turn-IA -->
+      <article class="project-card featured reveal" aria-label="Turn-IA project">
+        <div class="project-header">
+          <div class="project-header-left">
+            <div class="project-live-badge">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="i18n" data-es="En producción" data-en="Live in production">En producción</span>
             </div>
-            <p class="project-desc i18n"
-               data-es="Catálogo e-commerce completo con panel de administración, eliminación de fondo con IA (rembg + ONNX), almacenamiento en Cloudinary, pagos con MercadoPago y autenticación de usuarios. Usado por un cliente real."
-               data-en="Full e-commerce catalog with admin panel, AI-powered background removal (rembg + ONNX), Cloudinary image hosting, MercadoPago payments and user auth. Used by a real client.">
-              Catálogo e-commerce completo con panel de administración, eliminación de fondo con IA (rembg + ONNX), almacenamiento en Cloudinary, pagos con MercadoPago y autenticación de usuarios. Usado por un cliente real.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span>
-              <span class="tag">Cloudinary</span><span class="tag">MercadoPago</span><span class="tag">AI / rembg</span>
-              <span class="tag">Railway</span>
-            </div>
-            <div class="project-links-row">
-              <a href="https://whip-helmets.com.ar/" target="_blank" rel="noopener noreferrer" class="proj-btn accent">
-                <i data-lucide="external-link" width="12" height="12" aria-hidden="true"></i>
-                <span class="i18n" data-es="Ver en vivo" data-en="Live demo">Ver en vivo</span>
-              </a>
-              <a href="https://github.com/Abalito04/Catalogo-Whip-Helmet" target="_blank" rel="noopener noreferrer" class="proj-btn">
-                <i data-lucide="github" width="12" height="12" aria-hidden="true"></i>
-                <span>GitHub</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Card 2 -->
-          <article class="project-card reveal" aria-label="Restaurant SaaS project">
-            <div class="project-header">
-              <div class="project-header-left">
-                <div class="project-live-badge">
-                  <span class="dot" aria-hidden="true"></span>
-                  <span class="i18n" data-es="En producción" data-en="Live in production">En producción</span>
-                </div>
-                <h3 class="project-title i18n" data-es="SaaS de Restaurantes" data-en="Restaurant SaaS">SaaS de Restaurantes</h3>
-              </div>
-            </div>
-            <p class="project-desc i18n"
-               data-es="Aplicación web de gestión para restaurantes: usuarios, menús y pedidos con interfaz responsiva."
-               data-en="Restaurant management web app: user accounts, menu management and orders with responsive UI.">
-              Aplicación web de gestión para restaurantes: usuarios, menús y pedidos con interfaz responsiva.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">Bootstrap</span>
-            </div>
-            <div class="project-links-row">
-              <a href="https://app-resto.up.railway.app/" target="_blank" rel="noopener noreferrer" class="proj-btn accent">
-                <i data-lucide="external-link" width="12" height="12" aria-hidden="true"></i>
-                <span class="i18n" data-es="Ver en vivo" data-en="Live demo">Ver en vivo</span>
-              </a>
-              <a href="https://github.com/Abalito04/App-resto" target="_blank" rel="noopener noreferrer" class="proj-btn">
-                <i data-lucide="github" width="12" height="12" aria-hidden="true"></i>
-                GitHub
-              </a>
-            </div>
-          </article>
-
-          <!-- Card 3 -->
-          <article class="project-card reveal" aria-label="MercadoLibre Scraper project">
-            <h3 class="project-title">MercadoLibre Scraper</h3>
-            <p class="project-desc i18n"
-               data-es="Herramienta de automatización que extrae precios, títulos y vendedores de MercadoLibre y exporta los datos a Excel/CSV."
-               data-en="Automation tool that scrapes prices, titles and sellers from MercadoLibre and exports clean data to Excel/CSV.">
-              Herramienta de automatización que extrae precios, títulos y vendedores de MercadoLibre y exporta los datos a Excel/CSV.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Python</span><span class="tag">BeautifulSoup4</span><span class="tag">Pandas</span><span class="tag">openpyxl</span>
-            </div>
-            <div class="project-links-row">
-              <a href="https://github.com/Abalito04/Scraper-MercadoLibre" target="_blank" rel="noopener noreferrer" class="proj-btn">
-                <i data-lucide="github" width="12" height="12" aria-hidden="true"></i>
-                GitHub
-              </a>
-            </div>
-          </article>
-
-          <!-- Card 4 -->
-          <article class="project-card reveal" aria-label="FlanCitos project">
-            <h3 class="project-title">FlanCitos</h3>
-            <p class="project-desc i18n"
-               data-es="Sistema de gestión de ventas e inventario para un negocio local de comidas. Construido para un cliente no técnico real."
-               data-en="Sales and inventory management system for a local food business. Built for a real non-technical client.">
-              Sistema de gestión de ventas e inventario para un negocio local de comidas. Construido para un cliente no técnico real.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Jinja2</span><span class="tag">Railway</span>
-            </div>
-            <div class="project-links-row">
-              <a href="https://github.com/Abalito04/FlanCitos" target="_blank" rel="noopener noreferrer" class="proj-btn">
-                <i data-lucide="github" width="12" height="12" aria-hidden="true"></i>
-                GitHub
-              </a>
-            </div>
-          </article>
-
+            <h3 class="project-title">Turn-IA</h3>
+          </div>
         </div>
-      </div>
-    </section>
+        <p class="project-desc i18n"
+           data-es="Aplicación SaaS de gestión de turnos con inteligencia artificial. Permite a negocios administrar reservas, clientes y agenda de forma automatizada. Disponible como app móvil en Google Play Store."
+           data-en="AI-powered appointment management SaaS. Allows businesses to manage bookings, clients and schedules in an automated way. Available as a mobile app on Google Play Store.">
+          Aplicación SaaS de gestión de turnos con inteligencia artificial. Permite a negocios administrar reservas, clientes y agenda de forma automatizada. Disponible como app móvil en Google Play Store.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span>
+          <span class="tag">IA</span><span class="tag">PWA</span><span class="tag">Android</span>
+          <span class="tag">Railway</span>
+        </div>
+        <div class="project-links-row">
+          <a href="https://github.com/Abalito04/Turn-Ia" target="_blank" rel="noopener noreferrer" class="proj-btn accent">
+            <i data-lucide="github" width="12" height="12" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2: WHIP Helmets -->
+      <article class="project-card reveal" aria-label="WHIP Helmets project">
+        <div class="project-header">
+          <div class="project-header-left">
+            <div class="project-live-badge">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="i18n" data-es="En producción" data-en="Live in production">En producción</span>
+            </div>
+            <h3 class="project-title">Whip - Helmets</h3>
+          </div>
+        </div>
+        <p class="project-desc i18n"
+           data-es="Catálogo e-commerce completo con panel de administración, eliminación de fondo con IA (rembg + ONNX), almacenamiento en Cloudinary, pagos con MercadoPago y autenticación de usuarios. Usado por un cliente real."
+           data-en="Full e-commerce catalog with admin panel, AI-powered background removal (rembg + ONNX), Cloudinary image hosting, MercadoPago payments and user auth. Used by a real client.">
+          Catálogo e-commerce completo con panel de administración, eliminación de fondo con IA (rembg + ONNX), almacenamiento en Cloudinary, pagos con MercadoPago y autenticación de usuarios. Usado por un cliente real.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span>
+          <span class="tag">Cloudinary</span><span class="tag">MercadoPago</span><span class="tag">AI / rembg</span>
+          <span class="tag">Railway</span>
+        </div>
+        <div class="project-links-row">
+          <a href="https://whip-helmets.com.ar/" target="_blank" rel="noopener noreferrer" class="proj-btn accent">
+            <i data-lucide="external-link" width="12" height="12" aria-hidden="true"></i>
+            <span class="i18n" data-es="Ver en vivo" data-en="Live demo">Ver en vivo</span>
+          </a>
+          <a href="https://github.com/Abalito04/Catalogo-Whip-Helmet" target="_blank" rel="noopener noreferrer" class="proj-btn">
+            <i data-lucide="github" width="12" height="12" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 3: Restaurant SaaS -->
+      <article class="project-card reveal" aria-label="Restaurant SaaS project">
+        <div class="project-header">
+          <div class="project-header-left">
+            <div class="project-live-badge">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="i18n" data-es="En producción" data-en="Live in production">En producción</span>
+            </div>
+            <h3 class="project-title i18n" data-es="SaaS de Restaurantes" data-en="Restaurant SaaS">SaaS de Restaurantes</h3>
+          </div>
+        </div>
+        <p class="project-desc i18n"
+           data-es="Aplicación web de gestión para restaurantes: usuarios, menús y pedidos con interfaz responsiva."
+           data-en="Restaurant management web app: user accounts, menu management and orders with responsive UI.">
+          Aplicación web de gestión para restaurantes: usuarios, menús y pedidos con interfaz responsiva.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">Bootstrap</span>
+        </div>
+        <div class="project-links-row">
+          <a href="https://app-resto.up.railway.app/" target="_blank" rel="noopener noreferrer" class="proj-btn accent">
+            <i data-lucide="external-link" width="12" height="12" aria-hidden="true"></i>
+            <span class="i18n" data-es="Ver en vivo" data-en="Live demo">Ver en vivo</span>
+          </a>
+          <a href="https://github.com/Abalito04/App-resto" target="_blank" rel="noopener noreferrer" class="proj-btn">
+            <i data-lucide="github" width="12" height="12" aria-hidden="true"></i>
+            GitHub
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
 
     <hr class="divider">
 
