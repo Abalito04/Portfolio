@@ -39,6 +39,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
     /* ── TOKENS ─────────────────────────────────────────── */
     :root {
@@ -989,9 +990,9 @@
                           placeholder="Contame brevemente sobre tu proyecto, tiempos y presupuesto aproximado."></textarea>
               </div>
               <p class="form-help i18n"
-                 data-es="El formulario abrirá tu cliente de email con el mensaje preparado."
-                 data-en="The form will open your email client with the message ready.">
-                El formulario abrirá tu cliente de email con el mensaje preparado.
+                 data-es="El mensaje se enviará directo a mi email con EmailJS."
+                 data-en="The message will be sent directly to my email with EmailJS.">
+                El mensaje se enviará directo a mi email con EmailJS.
               </p>
               <button type="submit" class="btn-primary">
                 <i data-lucide="send" width="16" height="16" aria-hidden="true"></i>
@@ -1107,9 +1108,11 @@
     });
 
     // ── CONTACT FORM ───────────────────────────────────────
+    emailjs.init({ publicKey: '79cmvTkckyQwZrWM7' });
+
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
-    contactForm.addEventListener('submit', (event) => {
+    contactForm.addEventListener('submit', async (event) => {
       event.preventDefault();
 
       const formData = new FormData(contactForm);
@@ -1117,17 +1120,30 @@
       const email = formData.get('email').trim();
       const subject = formData.get('subject').trim();
       const message = formData.get('message').trim();
-      const body = [
-        `Nombre: ${name}`,
-        `Email: ${email}`,
-        '',
-        message
-      ].join('\n');
 
       formStatus.textContent = lang === 'es'
-        ? 'Abriendo tu cliente de email...'
-        : 'Opening your email client...';
-      window.location.href = `mailto:abalito95@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        ? 'Enviando mensaje...'
+        : 'Sending message...';
+
+      try {
+        await emailjs.send('service_vbzkn64', 'template_gb96yxp', {
+          name,
+          email,
+          subject,
+          message,
+          language: lang === 'es' ? 'Español' : 'English',
+          to_email: 'abalito95@gmail.com'
+        });
+
+        contactForm.reset();
+        formStatus.textContent = lang === 'es'
+          ? 'Mensaje enviado. Te respondo pronto.'
+          : 'Message sent. I will reply soon.';
+      } catch (error) {
+        formStatus.textContent = lang === 'es'
+          ? 'No se pudo enviar. Probá escribirme por email directo.'
+          : 'Could not send. Please try emailing me directly.';
+      }
     });
 
     // ── NAVBAR SCROLL ──────────────────────────────────────
