@@ -486,7 +486,7 @@
 
     /* ── CONTACT ────────────────────────────────────────── */
     .contact-wrapper {
-      max-width: 680px; margin: 0 auto; text-align: center;
+      max-width: 980px; margin: 0 auto; text-align: center;
     }
     .contact-methods {
       display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: center; margin-top: var(--space-10);
@@ -503,6 +503,89 @@
     .contact-card-text { text-align: left; }
     .contact-card-label { font-size: var(--text-xs); color: var(--text-faint); font-family: var(--font-mono); }
     .contact-card-value { font-size: var(--text-sm); color: var(--text); font-weight: 500; }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: var(--space-8);
+      align-items: start;
+      margin-top: var(--space-10);
+      text-align: left;
+    }
+    .contact-form {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: var(--card-shadow);
+      display: grid;
+      gap: var(--space-4);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    .form-field {
+      display: grid;
+      gap: var(--space-2);
+    }
+    .form-field label {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface-2);
+      color: var(--text);
+      font: inherit;
+      font-size: var(--text-sm);
+      padding: var(--space-3);
+      transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+    }
+    .form-field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    .form-field input:hover,
+    .form-field textarea:hover { border-color: var(--border-hover); }
+    .form-field input:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-subtle);
+    }
+    .form-help {
+      font-size: var(--text-xs);
+      color: var(--text-faint);
+      font-family: var(--font-mono);
+    }
+    .form-status {
+      min-height: 1.5em;
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .contact-side {
+      display: grid;
+      gap: var(--space-4);
+    }
+    .contact-side .contact-methods {
+      margin-top: 0;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-methods { justify-content: stretch; }
+      .contact-card { width: 100%; }
+    }
 
     /* ── FOOTER ─────────────────────────────────────────── */
     .footer {
@@ -554,7 +637,7 @@
   </nav>
 
   <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
     <a href="#proyectos" class="i18n" data-es="Proyectos" data-en="Projects">Proyectos</a>
     <a href="#servicios" class="i18n" data-es="Servicios" data-en="Services">Servicios</a>
     <a href="#sobre-mi" class="i18n" data-es="Sobre mí" data-en="About">Sobre mí</a>
@@ -879,28 +962,69 @@
              data-en="Available for full-time roles, freelance projects and remote collaborations. Let's talk!">
             Estoy disponible para empleos full-time, proyectos freelance y colaboraciones remotas. ¡Escribime!
           </p>
-          <div class="contact-methods" role="list">
-            <a href="mailto:abalito95@gmail.com" class="contact-card reveal" role="listitem" aria-label="Send email">
-              <i data-lucide="mail" width="20" height="20" aria-hidden="true"></i>
-              <div class="contact-card-text">
-                <div class="contact-card-label">Email</div>
-                <div class="contact-card-value">abalito95@gmail.com</div>
+          <div class="contact-layout">
+            <form class="contact-form reveal" id="contactForm">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="contactName" class="i18n" data-es="Nombre" data-en="Name">Nombre</label>
+                  <input id="contactName" name="name" type="text" autocomplete="name" required
+                         data-placeholder-es="Tu nombre" data-placeholder-en="Your name" placeholder="Tu nombre">
+                </div>
+                <div class="form-field">
+                  <label for="contactEmail" class="i18n" data-es="Email" data-en="Email">Email</label>
+                  <input id="contactEmail" name="email" type="email" autocomplete="email" required
+                         data-placeholder-es="tu@email.com" data-placeholder-en="you@email.com" placeholder="tu@email.com">
+                </div>
               </div>
-            </a>
-            <a href="https://github.com/Abalito04" target="_blank" rel="noopener noreferrer" class="contact-card reveal" role="listitem" aria-label="GitHub profile">
-              <i data-lucide="github" width="20" height="20" aria-hidden="true"></i>
-              <div class="contact-card-text">
-                <div class="contact-card-label">GitHub</div>
-                <div class="contact-card-value">Abalito04</div>
+              <div class="form-field">
+                <label for="contactSubject" class="i18n" data-es="Asunto" data-en="Subject">Asunto</label>
+                <input id="contactSubject" name="subject" type="text" required
+                       data-placeholder-es="Quiero desarrollar..." data-placeholder-en="I want to build..." placeholder="Quiero desarrollar...">
               </div>
-            </a>
-            <a href="https://www.linkedin.com/in/matias-abalo-1472292a9/" target="_blank" rel="noopener noreferrer" class="contact-card reveal" role="listitem" aria-label="LinkedIn profile">
-              <i data-lucide="linkedin" width="20" height="20" aria-hidden="true"></i>
-              <div class="contact-card-text">
-                <div class="contact-card-label">LinkedIn</div>
-                <div class="contact-card-value">matias-abalo</div>
+              <div class="form-field">
+                <label for="contactMessage" class="i18n" data-es="Mensaje" data-en="Message">Mensaje</label>
+                <textarea id="contactMessage" name="message" required
+                          data-placeholder-es="Contame brevemente sobre tu proyecto, tiempos y presupuesto aproximado."
+                          data-placeholder-en="Tell me briefly about your project, timeline and estimated budget."
+                          placeholder="Contame brevemente sobre tu proyecto, tiempos y presupuesto aproximado."></textarea>
               </div>
-            </a>
+              <p class="form-help i18n"
+                 data-es="El formulario abrirá tu cliente de email con el mensaje preparado."
+                 data-en="The form will open your email client with the message ready.">
+                El formulario abrirá tu cliente de email con el mensaje preparado.
+              </p>
+              <button type="submit" class="btn-primary">
+                <i data-lucide="send" width="16" height="16" aria-hidden="true"></i>
+                <span class="i18n" data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</span>
+              </button>
+              <p class="form-status" id="formStatus" aria-live="polite"></p>
+            </form>
+
+            <div class="contact-side">
+              <div class="contact-methods" role="list">
+                <a href="mailto:abalito95@gmail.com" class="contact-card reveal" role="listitem" aria-label="Send email">
+                  <i data-lucide="mail" width="20" height="20" aria-hidden="true"></i>
+                  <div class="contact-card-text">
+                    <div class="contact-card-label">Email</div>
+                    <div class="contact-card-value">abalito95@gmail.com</div>
+                  </div>
+                </a>
+                <a href="https://github.com/Abalito04" target="_blank" rel="noopener noreferrer" class="contact-card reveal" role="listitem" aria-label="GitHub profile">
+                  <i data-lucide="github" width="20" height="20" aria-hidden="true"></i>
+                  <div class="contact-card-text">
+                    <div class="contact-card-label">GitHub</div>
+                    <div class="contact-card-value">Abalito04</div>
+                  </div>
+                </a>
+                <a href="https://www.linkedin.com/in/matias-abalo-1472292a9/" target="_blank" rel="noopener noreferrer" class="contact-card reveal" role="listitem" aria-label="LinkedIn profile">
+                  <i data-lucide="linkedin" width="20" height="20" aria-hidden="true"></i>
+                  <div class="contact-card-text">
+                    <div class="contact-card-label">LinkedIn</div>
+                    <div class="contact-card-value">matias-abalo</div>
+                  </div>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -926,23 +1050,32 @@
 
     // ── THEME ──────────────────────────────────────────────
     const html = document.documentElement;
-    let theme = 'dark';
     const themeBtn = document.getElementById('themeToggle');
-    function setTheme(t) {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let theme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+    function setTheme(t, persist = true) {
       theme = t;
       html.setAttribute('data-theme', t);
-      themeBtn.innerHTML = t === 'dark'
-        ? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>'
-        : '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      themeBtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+      themeBtn.innerHTML = `<i data-lucide="${t === 'dark' ? 'sun' : 'moon'}" width="16" height="16"></i>`;
+      lucide.createIcons();
+      if (persist) localStorage.setItem('theme', t);
     }
+
+    setTheme(theme, Boolean(savedTheme));
     themeBtn.addEventListener('click', () => setTheme(theme === 'dark' ? 'light' : 'dark'));
 
     // ── LANGUAGE ───────────────────────────────────────────
-    let lang = 'es';
+    const savedLang = localStorage.getItem('lang');
+    const browserLang = navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en';
+    let lang = savedLang || browserLang;
     const langBtns = [document.getElementById('langToggle'), document.getElementById('langToggleMobile')];
-    function setLang(l) {
+    function setLang(l, persist = true) {
       lang = l;
       html.setAttribute('data-lang', l);
+      html.setAttribute('lang', l);
       langBtns.forEach(b => { if(b) b.textContent = l === 'es' ? 'EN' : 'ES'; });
       document.querySelectorAll('.i18n').forEach(el => {
         const val = el.getAttribute('data-' + l);
@@ -952,8 +1085,10 @@
       document.querySelectorAll('[data-placeholder-' + l + ']').forEach(el => {
         el.placeholder = el.getAttribute('data-placeholder-' + l);
       });
+      if (persist) localStorage.setItem('lang', l);
     }
     langBtns.forEach(b => { if(b) b.addEventListener('click', () => setLang(lang === 'es' ? 'en' : 'es')); });
+    setLang(lang, Boolean(savedLang));
 
     // ── MOBILE MENU ────────────────────────────────────────
     const hamburger = document.getElementById('hamburger');
@@ -961,9 +1096,38 @@
     hamburger.addEventListener('click', () => {
       const open = mobileMenu.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', open);
+      mobileMenu.setAttribute('aria-hidden', !open);
     });
     mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => { mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded', false); });
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+        mobileMenu.setAttribute('aria-hidden', true);
+      });
+    });
+
+    // ── CONTACT FORM ───────────────────────────────────────
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(contactForm);
+      const name = formData.get('name').trim();
+      const email = formData.get('email').trim();
+      const subject = formData.get('subject').trim();
+      const message = formData.get('message').trim();
+      const body = [
+        `Nombre: ${name}`,
+        `Email: ${email}`,
+        '',
+        message
+      ].join('\n');
+
+      formStatus.textContent = lang === 'es'
+        ? 'Abriendo tu cliente de email...'
+        : 'Opening your email client...';
+      window.location.href = `mailto:abalito95@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
 
     // ── NAVBAR SCROLL ──────────────────────────────────────
