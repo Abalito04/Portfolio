@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark" data-lang="es">
+<html lang="es" data-theme="light" data-lang="es">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,6 +7,7 @@
   <!-- SEO -->
   <title>Matias Abalo — Python & Web Developer | Full-Stack</title>
   <meta name="description" content="Desarrollador web full-stack especializado en Python, Flask y PostgreSQL. Construyo e-commerce, SaaS y herramientas de automatización para negocios reales. Disponible para proyectos freelance y roles remotos."/>
+  <meta name="theme-color" content="#eeece4"/>
   <meta name="author" content="Matias Abalo"/>
   <meta name="keywords" content="python developer, flask developer, web developer argentina, full stack developer, e-commerce flask, freelance developer jujuy"/>
   <meta name="robots" content="index, follow"/>
@@ -64,25 +65,25 @@
       --font-mono: 'Geist Mono', 'Fira Code', monospace;
     }
 
-    /* ── DARK MODE (default) ────────────────────────────── */
+    /* ── DARK MODE ──────────────────────────────────────── */
     :root, [data-theme="dark"] {
-      --bg:           #0a0a0b;
-      --surface:      #111113;
-      --surface-2:    #18181b;
-      --surface-3:    #1f1f23;
-      --border:       rgba(255,255,255,0.07);
-      --border-hover: rgba(255,255,255,0.14);
-      --text:         #ededed;
-      --text-muted:   #8b8b8b;
-      --text-faint:   #444;
-      --accent:       #e03535;
-      --accent-hover: #f05252;
-      --accent-glow:  rgba(224,53,53,0.18);
-      --accent-subtle:rgba(224,53,53,0.08);
-      --green:        #22c55e;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
-      --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
-      --shadow-lg: 0 12px 40px rgba(0,0,0,0.6);
+      --bg:           #11161a;
+      --surface:      #171d22;
+      --surface-2:    #1e252b;
+      --surface-3:    #283139;
+      --border:       rgba(226,232,240,0.09);
+      --border-hover: rgba(226,232,240,0.18);
+      --text:         #f0f4f6;
+      --text-muted:   #a8b3bd;
+      --text-faint:   #65717a;
+      --accent:       #74a6b8;
+      --accent-hover: #9bc2d0;
+      --accent-glow:  rgba(116,166,184,0.18);
+      --accent-subtle:rgba(116,166,184,0.10);
+      --green:        #7fb69a;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.35);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.34);
+      --shadow-lg: 0 18px 52px rgba(0,0,0,0.42);
       --card-shadow: none;
       --card-shadow-hover: var(--shadow-md);
       --navbar-shadow: none;
@@ -90,27 +91,26 @@
 
     /* ── LIGHT MODE ─────────────────────────────────────── */
     [data-theme="light"] {
-      --bg:           #f1f1f3;
-      --surface:      #ffffff;
-      --surface-2:    #f7f7f9;
-      --surface-3:    #ececef;
-      --border:       rgba(0,0,0,0.07);
-      --border-hover: rgba(0,0,0,0.18);
-      --text:         #09090b;
-      --text-muted:   #52525b;
-      --text-faint:   #a1a1aa;
-      --accent:       #b91c1c;
-      --accent-hover: #991b1b;
-      --accent-glow:  rgba(185,28,28,0.10);
-      --accent-subtle:rgba(185,28,28,0.06);
-      --green:        #16a34a;
-      --shadow-sm: 0 1px 4px rgba(0,0,0,0.07), 0 2px 8px rgba(0,0,0,0.04);
-      --shadow-md: 0 4px 16px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.05);
-      --shadow-lg: 0 12px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
-      /* Cards always carry a resting shadow in light mode */
-      --card-shadow: 0 1px 4px rgba(0,0,0,0.07), 0 2px 10px rgba(0,0,0,0.05);
-      --card-shadow-hover: 0 6px 24px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
-      --navbar-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.05);
+      --bg:           #eeece4;
+      --surface:      #f7f4ec;
+      --surface-2:    #e7e3d8;
+      --surface-3:    #d9d3c6;
+      --border:       rgba(43,57,68,0.12);
+      --border-hover: rgba(43,57,68,0.26);
+      --text:         #1c252b;
+      --text-muted:   #5d6870;
+      --text-faint:   #8d928d;
+      --accent:       #315c72;
+      --accent-hover: #24495d;
+      --accent-glow:  rgba(49,92,114,0.15);
+      --accent-subtle:rgba(49,92,114,0.08);
+      --green:        #4f8064;
+      --shadow-sm: 0 1px 2px rgba(43,57,68,0.06), 0 2px 8px rgba(43,57,68,0.04);
+      --shadow-md: 0 8px 28px rgba(43,57,68,0.10), 0 2px 8px rgba(43,57,68,0.05);
+      --shadow-lg: 0 20px 56px rgba(43,57,68,0.14), 0 6px 18px rgba(43,57,68,0.07);
+      --card-shadow: 0 1px 2px rgba(43,57,68,0.06), 0 10px 30px rgba(43,57,68,0.06);
+      --card-shadow-hover: 0 14px 42px rgba(43,57,68,0.13), 0 4px 12px rgba(43,57,68,0.06);
+      --navbar-shadow: 0 1px 0 rgba(43,57,68,0.08), 0 8px 24px rgba(43,57,68,0.05);
     }
 
     /* ── BASE ───────────────────────────────────────────── */
@@ -120,7 +120,9 @@
       font-family: var(--font-body);
       font-size: var(--text-base);
       color: var(--text);
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 12% 8%, var(--accent-glow), transparent 28%),
+        linear-gradient(180deg, var(--bg) 0%, color-mix(in oklch, var(--bg) 88%, var(--surface-2)) 100%);
       line-height: 1.6;
       min-height: 100dvh;
       transition: background var(--transition), color var(--transition);
@@ -149,7 +151,7 @@
     .navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: 60px;
-      background: color-mix(in oklch, var(--bg) 80%, transparent);
+      background: color-mix(in oklch, var(--bg) 86%, transparent);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
@@ -253,23 +255,34 @@
       background-image:
         linear-gradient(var(--border) 1px, transparent 1px),
         linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 0%, transparent 70%);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse 78% 54% at 50% 36%, black 0%, transparent 72%);
+      opacity: 0.52;
     }
     .hero-glow {
-      position: absolute; top: 15%; left: 50%; transform: translateX(-50%);
-      width: 600px; height: 300px; pointer-events: none;
-      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+      position: absolute; top: 12%; right: 8%;
+      width: 520px; height: 340px; pointer-events: none;
+      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 68%);
     }
-    .hero-content {
-      position: relative; z-index: 1;
-      max-width: 780px;
+    .hero .container { position: relative; z-index: 1; }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.75fr);
+      gap: clamp(var(--space-8), 6vw, var(--space-20));
+      align-items: center;
     }
+    .hero-content { max-width: 720px; }
+    .hero-kicker {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      margin-bottom: var(--space-3);
+    }
+    .hero-kicker strong { color: var(--text); font-weight: 600; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: var(--space-2);
       font-size: var(--text-xs); font-family: var(--font-mono);
-      color: var(--accent); border: 1px solid var(--accent-glow);
-      background: var(--accent-subtle);
+      color: var(--accent); border: 1px solid color-mix(in oklch, var(--accent) 30%, transparent);
+      background: color-mix(in oklch, var(--surface) 82%, var(--accent-subtle));
       padding: var(--space-1) var(--space-3); border-radius: var(--radius-full);
       margin-bottom: var(--space-6);
       letter-spacing: 0.03em;
@@ -281,9 +294,9 @@
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
 
     .hero h1 {
-      font-size: var(--text-hero);
+      font-size: clamp(2.4rem, 1.3rem + 3.4vw, 4.8rem);
       font-weight: 600;
-      line-height: 1.08;
+      line-height: 1.05;
       letter-spacing: -0.03em;
       margin-bottom: var(--space-6);
       color: var(--text);
@@ -306,10 +319,10 @@
       background: var(--accent); color: #fff;
       font-size: var(--text-sm); font-weight: 500;
       padding: var(--space-3) var(--space-6);
-      border-radius: var(--radius-md); border: 1px solid transparent;
+      border-radius: var(--radius-md); border: 1px solid color-mix(in oklch, var(--accent) 80%, black);
       transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
     }
-    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 8px 24px var(--accent-glow); }
     .btn-primary:active { transform: translateY(0); }
     .btn-ghost {
       display: inline-flex; align-items: center; gap: var(--space-2);
@@ -335,6 +348,62 @@
       transition: color var(--transition), border-color var(--transition);
     }
     .stack-chip:hover { color: var(--text); border-color: var(--border-hover); }
+
+    .hero-panel {
+      background: linear-gradient(180deg, var(--surface), color-mix(in oklch, var(--surface) 70%, var(--surface-2)));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: var(--card-shadow);
+    }
+    .panel-label {
+      font-size: var(--text-xs);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+    .panel-name {
+      font-size: var(--text-xl);
+      color: var(--text);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-2);
+    }
+    .panel-role {
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-6);
+    }
+    .panel-list {
+      display: grid;
+      gap: var(--space-3);
+      padding-top: var(--space-5);
+      border-top: 1px solid var(--border);
+    }
+    .panel-list li {
+      display: flex;
+      gap: var(--space-3);
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+      line-height: 1.5;
+    }
+    .panel-list li::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      flex: 0 0 auto;
+      margin-top: 0.55em;
+    }
+
+    @media (max-width: 860px) {
+      .hero { min-height: auto; padding: calc(60px + var(--space-16)) 0 var(--space-16); }
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-panel { max-width: 520px; }
+    }
 
     /* ── PROJECTS ───────────────────────────────────────── */
     .section-label {
@@ -371,18 +440,18 @@
     }
     .project-card::before {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 40% at 80% 20%, var(--accent-glow), transparent);
+      background: linear-gradient(135deg, var(--accent-subtle), transparent 42%);
       opacity: 0; transition: opacity var(--transition); pointer-events: none;
     }
     .project-card:hover { border-color: var(--border-hover); box-shadow: var(--card-shadow-hover); transform: translateY(-2px); }
     .project-card:hover::before { opacity: 1; }
 
-    .project-card.featured { background: var(--surface-2); }
+    .project-card.featured { background: linear-gradient(135deg, var(--surface), var(--surface-2)); }
     .project-live-badge {
       display: inline-flex; align-items: center; gap: var(--space-1);
       font-size: var(--text-xs); font-family: var(--font-mono);
-      color: var(--green); background: rgba(34,197,94,0.08);
-      border: 1px solid rgba(34,197,94,0.2);
+      color: var(--green); background: color-mix(in oklch, var(--green) 10%, transparent);
+      border: 1px solid color-mix(in oklch, var(--green) 26%, transparent);
       padding: 2px var(--space-2); border-radius: var(--radius-full);
     }
     .project-live-badge .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
@@ -475,11 +544,11 @@
       display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-6);
     }
     .code-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .code-dot.r { background: #ff5f57; } .code-dot.y { background: #febc2e; } .code-dot.g { background: #28c840; }
+    .code-dot.r { background: #8aa2ad; } .code-dot.y { background: #c4aa75; } .code-dot.g { background: #7fa08b; }
     .code-filename { color: var(--text-faint); margin-left: auto; font-size: var(--text-xs); }
     .code-line { line-height: 1.9; }
-    .kw { color: #c792ea; } .fn { color: #82aaff; } .str { color: #c3e88d; }
-    .cm { color: var(--text-faint); } .op { color: var(--text-muted); } .num { color: #f78c6c; }
+    .kw { color: #6f5f8f; } .fn { color: var(--accent); } .str { color: #4f8064; }
+    .cm { color: var(--text-faint); } .op { color: var(--text-muted); } .num { color: #9a6b3f; }
     .indent { padding-left: var(--space-6); }
     .indent2 { padding-left: var(--space-12); }
 
@@ -494,7 +563,8 @@
     }
     .contact-card {
       display: flex; align-items: center; gap: var(--space-3);
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, var(--surface), color-mix(in oklch, var(--surface) 72%, var(--surface-2)));
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
       padding: var(--space-4) var(--space-6);
       box-shadow: var(--card-shadow);
       transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
@@ -514,7 +584,7 @@
       text-align: left;
     }
     .contact-form {
-      background: var(--surface);
+      background: linear-gradient(180deg, var(--surface), color-mix(in oklch, var(--surface) 72%, var(--surface-2)));
       border: 1px solid var(--border);
       border-radius: var(--radius-xl);
       padding: var(--space-8);
@@ -541,7 +611,7 @@
       width: 100%;
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      background: var(--surface-2);
+      background: color-mix(in oklch, var(--surface) 58%, var(--surface-2));
       color: var(--text);
       font: inherit;
       font-size: var(--text-sm);
@@ -655,41 +725,64 @@
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="container">
-        <div class="hero-content">
-          <div class="hero-badge" aria-label="Available for work">
-            <span class="pulse" aria-hidden="true"></span>
-            <span class="i18n" data-es="Disponible para trabajar" data-en="Available for work">Disponible para trabajar</span>
+        <div class="hero-layout">
+          <div class="hero-content">
+            <div class="hero-badge" aria-label="Available for work">
+              <span class="pulse" aria-hidden="true"></span>
+              <span class="i18n" data-es="Disponible para proyectos y roles remotos" data-en="Available for projects and remote roles">Disponible para proyectos y roles remotos</span>
+            </div>
+            <p class="hero-kicker i18n"
+               data-es="<strong>Matias Abalo</strong> · Desarrollador Python & Web"
+               data-en="<strong>Matias Abalo</strong> · Python & Web Developer">
+              <strong>Matias Abalo</strong> · Desarrollador Python & Web
+            </p>
+            <h1 class="i18n"
+                data-es="Aplicaciones web claras, funcionales y listas para producción."
+                data-en="Clear, functional web applications ready for production.">
+              Aplicaciones web claras, funcionales y listas para producción.
+            </h1>
+            <p class="hero-sub i18n"
+               data-es="Construyo sistemas para negocios reales: e-commerce, SaaS, paneles de gestión y automatizaciones con Python, Flask y PostgreSQL."
+               data-en="I build systems for real businesses: e-commerce, SaaS, admin panels and automations with Python, Flask and PostgreSQL.">
+              Construyo sistemas para negocios reales: e-commerce, SaaS, paneles de gestión y automatizaciones con Python, Flask y PostgreSQL.
+            </p>
+            <div class="hero-ctas">
+              <a href="#proyectos" class="btn-primary">
+                <i data-lucide="layout-grid" width="16" height="16" aria-hidden="true"></i>
+                <span class="i18n" data-es="Ver casos reales" data-en="View real cases">Ver casos reales</span>
+              </a>
+              <a href="#contacto" class="btn-ghost">
+                <span class="i18n" data-es="Solicitar propuesta" data-en="Request a proposal">Solicitar propuesta</span>
+                <i data-lucide="arrow-right" width="16" height="16" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="hero-stack" aria-label="Tech stack">
+              <span class="hero-stack-label">stack:</span>
+              <span class="stack-chip">Python</span>
+              <span class="stack-chip">Flask</span>
+              <span class="stack-chip">PostgreSQL</span>
+              <span class="stack-chip">Railway</span>
+              <span class="stack-chip">Cloudinary</span>
+              <span class="stack-chip">Git</span>
+            </div>
           </div>
-          <h1>
-            <span class="i18n" data-es="Hola, soy" data-en="Hi, I'm">Hola, soy</span><br>
-            <span class="accent-word">Matias Abalo</span>
-          </h1>
-          <p class="hero-sub i18n"
-             data-es="Desarrollo aplicaciones web  y construyo herramientas reales para negocios reales — desde e-commerce hasta automatización de procesos."
-             data-en="I build web applications with Python. Real tools for real businesses — from e-commerce platforms to process automation.">
-            Desarrollo aplicaciones web y construyo herramientas reales para negocios reales — desde e-commerce hasta automatización de procesos.
-          </p>
-          <div class="hero-ctas">
-            <a href="#proyectos" class="btn-primary">
-              <i data-lucide="layout-grid" width="16" height="16" aria-hidden="true"></i>
-              <span class="i18n" data-es="Ver proyectos" data-en="View projects">Ver proyectos</span>
-            </a>
-            <a href="#contacto" class="btn-ghost">
-              <span class="i18n" data-es="Contactar" data-en="Get in touch">Contactar</span>
-              <i data-lucide="arrow-right" width="16" height="16" aria-hidden="true"></i>
-            </a>
-          </div>
-          <div class="hero-stack" aria-label="Tech stack">
-            <span class="hero-stack-label">stack:</span>
-            <span class="stack-chip">Python</span>
-            <span class="stack-chip">Flask</span>
-            <span class="stack-chip">PostgreSQL</span>
-            <span class="stack-chip">Railway</span>
-            <span class="stack-chip">Cloudinary</span>
-            <span class="stack-chip">Git</span>
+
+          <aside class="hero-panel" aria-label="Profile summary">
+            <p class="panel-label i18n" data-es="Perfil profesional" data-en="Professional profile">Perfil profesional</p>
+            <h2 class="panel-name">Matias Abalo</h2>
+            <p class="panel-role i18n"
+               data-es="Full-stack developer enfocado en soluciones web para operaciones, ventas y automatización."
+               data-en="Full-stack developer focused on web solutions for operations, sales and automation.">
+              Full-stack developer enfocado en soluciones web para operaciones, ventas y automatización.
+            </p>
+            <ul class="panel-list" role="list">
+              <li class="i18n" data-es="8+ proyectos en producción" data-en="8+ projects in production">8+ proyectos en producción</li>
+              <li class="i18n" data-es="Experiencia con clientes reales" data-en="Experience with real clients">Experiencia con clientes reales</li>
+              <li class="i18n" data-es="Deploy, base de datos y mantenimiento" data-en="Deploy, database and maintenance">Deploy, base de datos y mantenimiento</li>
+            </ul>
+          </aside>
           </div>
         </div>
-      </div>
     </section>
 
     <hr class="divider">
@@ -1053,12 +1146,13 @@
     const html = document.documentElement;
     const themeBtn = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    let theme = savedTheme || (prefersDark ? 'dark' : 'light');
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    let theme = savedTheme || 'light';
 
     function setTheme(t, persist = true) {
       theme = t;
       html.setAttribute('data-theme', t);
+      themeColor.setAttribute('content', t === 'dark' ? '#11161a' : '#eeece4');
       themeBtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
       themeBtn.innerHTML = `<i data-lucide="${t === 'dark' ? 'sun' : 'moon'}" width="16" height="16"></i>`;
       lucide.createIcons();
@@ -1129,6 +1223,9 @@
         await emailjs.send('service_vbzkn64', 'template_gb96yxp', {
           name,
           email,
+          from_name: name,
+          from_email: email,
+          reply_to: email,
           subject,
           message,
           language: lang === 'es' ? 'Español' : 'English',
