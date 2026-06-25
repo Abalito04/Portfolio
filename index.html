@@ -245,9 +245,9 @@
 
     /* ── HERO ───────────────────────────────────────────── */
     .hero {
-      min-height: 100dvh;
+      min-height: 82dvh;
       display: flex; align-items: center;
-      padding-top: 60px;
+      padding: calc(60px + var(--space-16)) 0 var(--space-16);
       position: relative; overflow: hidden;
     }
     .hero-grid {
@@ -267,7 +267,7 @@
     .hero .container { position: relative; z-index: 1; }
     .hero-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.75fr);
+      grid-template-columns: minmax(280px, 0.75fr) minmax(0, 1.15fr);
       gap: clamp(var(--space-8), 6vw, var(--space-20));
       align-items: center;
     }
@@ -294,7 +294,7 @@
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 1.3rem + 3.4vw, 4.8rem);
+      font-size: clamp(2.2rem, 1.2rem + 3vw, 4.4rem);
       font-weight: 600;
       line-height: 1.05;
       letter-spacing: -0.03em;
@@ -355,6 +355,15 @@
       border-radius: var(--radius-xl);
       padding: var(--space-8);
       box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), color-mix(in oklch, var(--accent) 35%, transparent));
     }
     .panel-label {
       font-size: var(--text-xs);
@@ -399,10 +408,49 @@
       margin-top: 0.55em;
     }
 
+    .profile-strip {
+      margin-top: calc(var(--space-8) * -1);
+      position: relative;
+      z-index: 2;
+    }
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+    .profile-card {
+      background: linear-gradient(180deg, var(--surface), color-mix(in oklch, var(--surface) 76%, var(--surface-2)));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      box-shadow: var(--card-shadow);
+    }
+    .profile-card span {
+      display: block;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-3);
+    }
+    .profile-card h2 {
+      font-size: var(--text-base);
+      color: var(--text);
+      margin-bottom: var(--space-2);
+    }
+    .profile-card p {
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+      line-height: 1.65;
+    }
+
     @media (max-width: 860px) {
       .hero { min-height: auto; padding: calc(60px + var(--space-16)) 0 var(--space-16); }
       .hero-layout { grid-template-columns: 1fr; }
-      .hero-panel { max-width: 520px; }
+      .hero-panel { max-width: none; order: 2; }
+      .profile-strip { margin-top: 0; }
+      .profile-grid { grid-template-columns: 1fr; }
     }
 
     /* ── PROJECTS ───────────────────────────────────────── */
@@ -423,8 +471,8 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-4);
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
     }
     .project-card.featured { grid-column: 1 / -1; }
 
@@ -433,7 +481,10 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-xl);
       padding: var(--space-8);
-      display: flex; flex-direction: column; gap: var(--space-4);
+      display: grid;
+      grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+      gap: var(--space-8);
+      align-items: start;
       box-shadow: var(--card-shadow);
       transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
       position: relative; overflow: hidden;
@@ -457,11 +508,15 @@
     .project-live-badge .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
 
     .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); }
+    .project-card .project-header { grid-row: 1 / span 3; }
+    .project-card .project-desc,
+    .project-card .project-tags,
+    .project-card .project-links-row { grid-column: 2; }
     .project-header-left { display: flex; flex-direction: column; gap: var(--space-2); }
     .project-title {
       font-size: var(--text-lg); font-weight: 600; letter-spacing: -0.02em; color: var(--text);
     }
-    .project-desc { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.6; max-width: 60ch; }
+    .project-desc { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.7; max-width: 68ch; }
     .project-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
     .tag {
       font-size: var(--text-xs); font-family: var(--font-mono);
@@ -469,7 +524,7 @@
       border: 1px solid var(--border); border-radius: var(--radius-sm);
       padding: 2px var(--space-2);
     }
-    .project-links-row { display: flex; gap: var(--space-2); margin-top: auto; }
+    .project-links-row { display: flex; gap: var(--space-2); margin-top: var(--space-2); }
     .proj-btn {
       display: inline-flex; align-items: center; gap: var(--space-1);
       font-size: var(--text-xs); font-weight: 500;
@@ -485,6 +540,11 @@
     @media (max-width: 640px) {
       .projects-grid { grid-template-columns: 1fr; }
       .project-card.featured { grid-column: 1; }
+      .project-card { grid-template-columns: 1fr; gap: var(--space-4); }
+      .project-card .project-header,
+      .project-card .project-desc,
+      .project-card .project-tags,
+      .project-card .project-links-row { grid-column: auto; grid-row: auto; }
     }
 
     /* ── SERVICES ───────────────────────────────────────── */
@@ -492,8 +552,11 @@
       display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4);
     }
     .service-card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl);
-      padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-4);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      display: flex; flex-direction: column; gap: var(--space-4);
       box-shadow: var(--card-shadow);
       transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
     }
@@ -690,9 +753,9 @@
         abalito<span class="dot">.</span>dev
       </a>
       <ul class="nav-links" role="list">
-        <li><a href="#proyectos" class="i18n" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
-        <li><a href="#servicios" class="i18n" data-es="Servicios" data-en="Services">Servicios</a></li>
-        <li><a href="#sobre-mi" class="i18n" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
+        <li><a href="#sobre-mi" class="i18n" data-es="Perfil" data-en="Profile">Perfil</a></li>
+        <li><a href="#proyectos" class="i18n" data-es="Casos" data-en="Cases">Casos</a></li>
+        <li><a href="#servicios" class="i18n" data-es="Soluciones" data-en="Solutions">Soluciones</a></li>
         <li><a href="#contacto" class="i18n" data-es="Contacto" data-en="Contact">Contacto</a></li>
       </ul>
       <div class="nav-actions">
@@ -709,9 +772,9 @@
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
-    <a href="#proyectos" class="i18n" data-es="Proyectos" data-en="Projects">Proyectos</a>
-    <a href="#servicios" class="i18n" data-es="Servicios" data-en="Services">Servicios</a>
-    <a href="#sobre-mi" class="i18n" data-es="Sobre mí" data-en="About">Sobre mí</a>
+    <a href="#sobre-mi" class="i18n" data-es="Perfil" data-en="Profile">Perfil</a>
+    <a href="#proyectos" class="i18n" data-es="Casos" data-en="Cases">Casos</a>
+    <a href="#servicios" class="i18n" data-es="Soluciones" data-en="Solutions">Soluciones</a>
     <a href="#contacto" class="i18n" data-es="Contacto" data-en="Contact">Contacto</a>
     <div class="mobile-actions">
       <button class="lang-btn" id="langToggleMobile" aria-label="Switch language">EN</button>
@@ -726,25 +789,40 @@
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="container">
         <div class="hero-layout">
+          <aside class="hero-panel" aria-label="Profile summary">
+            <p class="panel-label i18n" data-es="Perfil en crecimiento" data-en="Growing profile">Perfil en crecimiento</p>
+            <h2 class="panel-name">Matias Abalo</h2>
+            <p class="panel-role i18n"
+               data-es="Estudiante de programación, desarrollador autodidacta y constructor de proyectos web en producción."
+               data-en="Programming student, self-taught developer and builder of production web projects.">
+              Estudiante de programación, desarrollador autodidacta y constructor de proyectos web en producción.
+            </p>
+            <ul class="panel-list" role="list">
+              <li class="i18n" data-es="Tecnicatura en Programación · UTN" data-en="Computer Programming degree · UTN">Tecnicatura en Programación · UTN</li>
+              <li class="i18n" data-es="Aprendizaje autodidacta aplicado a clientes reales" data-en="Self-taught learning applied to real clients">Aprendizaje autodidacta aplicado a clientes reales</li>
+              <li class="i18n" data-es="Python, Flask, PostgreSQL y despliegue cloud" data-en="Python, Flask, PostgreSQL and cloud deployment">Python, Flask, PostgreSQL y despliegue cloud</li>
+            </ul>
+          </aside>
+
           <div class="hero-content">
             <div class="hero-badge" aria-label="Available for work">
               <span class="pulse" aria-hidden="true"></span>
-              <span class="i18n" data-es="Disponible para proyectos y roles remotos" data-en="Available for projects and remote roles">Disponible para proyectos y roles remotos</span>
+              <span class="i18n" data-es="Portfolio técnico · proyectos reales" data-en="Technical portfolio · real projects">Portfolio técnico · proyectos reales</span>
             </div>
             <p class="hero-kicker i18n"
-               data-es="<strong>Matias Abalo</strong> · Desarrollador Python & Web"
-               data-en="<strong>Matias Abalo</strong> · Python & Web Developer">
-              <strong>Matias Abalo</strong> · Desarrollador Python & Web
+               data-es="Desarrollo web, automatización y sistemas para negocios"
+               data-en="Web development, automation and business systems">
+              Desarrollo web, automatización y sistemas para negocios
             </p>
             <h1 class="i18n"
-                data-es="Aplicaciones web claras, funcionales y listas para producción."
-                data-en="Clear, functional web applications ready for production.">
-              Aplicaciones web claras, funcionales y listas para producción.
+                data-es="De estudiante autodidacta a soluciones web en producción."
+                data-en="From self-taught student to production web solutions.">
+              De estudiante autodidacta a soluciones web en producción.
             </h1>
             <p class="hero-sub i18n"
-               data-es="Construyo sistemas para negocios reales: e-commerce, SaaS, paneles de gestión y automatizaciones con Python, Flask y PostgreSQL."
-               data-en="I build systems for real businesses: e-commerce, SaaS, admin panels and automations with Python, Flask and PostgreSQL.">
-              Construyo sistemas para negocios reales: e-commerce, SaaS, paneles de gestión y automatizaciones con Python, Flask y PostgreSQL.
+               data-es="Estoy formándome en programación y, en paralelo, construyo aplicaciones completas: catálogos, SaaS, paneles administrativos y automatizaciones con foco en utilidad real."
+               data-en="I am studying programming while building complete applications: catalogs, SaaS products, admin panels and automations focused on real utility.">
+              Estoy formándome en programación y, en paralelo, construyo aplicaciones completas: catálogos, SaaS, paneles administrativos y automatizaciones con foco en utilidad real.
             </p>
             <div class="hero-ctas">
               <a href="#proyectos" class="btn-primary">
@@ -767,22 +845,30 @@
             </div>
           </div>
 
-          <aside class="hero-panel" aria-label="Profile summary">
-            <p class="panel-label i18n" data-es="Perfil profesional" data-en="Professional profile">Perfil profesional</p>
-            <h2 class="panel-name">Matias Abalo</h2>
-            <p class="panel-role i18n"
-               data-es="Full-stack developer enfocado en soluciones web para operaciones, ventas y automatización."
-               data-en="Full-stack developer focused on web solutions for operations, sales and automation.">
-              Full-stack developer enfocado en soluciones web para operaciones, ventas y automatización.
-            </p>
-            <ul class="panel-list" role="list">
-              <li class="i18n" data-es="8+ proyectos en producción" data-en="8+ projects in production">8+ proyectos en producción</li>
-              <li class="i18n" data-es="Experiencia con clientes reales" data-en="Experience with real clients">Experiencia con clientes reales</li>
-              <li class="i18n" data-es="Deploy, base de datos y mantenimiento" data-en="Deploy, database and maintenance">Deploy, base de datos y mantenimiento</li>
-            </ul>
-          </aside>
           </div>
         </div>
+    </section>
+
+    <section class="profile-strip" id="sobre-mi" aria-label="Profile highlights">
+      <div class="container">
+        <div class="profile-grid">
+          <article class="profile-card reveal">
+            <span class="i18n" data-es="Formación" data-en="Education">Formación</span>
+            <h2 class="i18n" data-es="Estudiante de Programación" data-en="Programming Student">Estudiante de Programación</h2>
+            <p class="i18n" data-es="Curso la Tecnicatura en Programación en UTN, complementando la base académica con práctica constante." data-en="I study Computer Programming at UTN, combining academic foundations with constant practice.">Curso la Tecnicatura en Programación en UTN, complementando la base académica con práctica constante.</p>
+          </article>
+          <article class="profile-card reveal">
+            <span class="i18n" data-es="Camino" data-en="Path">Camino</span>
+            <h2 class="i18n" data-es="Autodidacta por iniciativa" data-en="Self-taught by initiative">Autodidacta por iniciativa</h2>
+            <p class="i18n" data-es="Aprendí construyendo, probando, fallando y llevando proyectos reales hasta producción." data-en="I learned by building, testing, failing and shipping real projects to production.">Aprendí construyendo, probando, fallando y llevando proyectos reales hasta producción.</p>
+          </article>
+          <article class="profile-card reveal">
+            <span class="i18n" data-es="Enfoque" data-en="Focus">Enfoque</span>
+            <h2 class="i18n" data-es="Soluciones simples y útiles" data-en="Simple and useful solutions">Soluciones simples y útiles</h2>
+            <p class="i18n" data-es="Busco que cada aplicación resuelva una operación concreta: vender, gestionar, reservar o automatizar." data-en="I aim for every app to solve a concrete operation: sell, manage, book or automate.">Busco que cada aplicación resuelva una operación concreta: vender, gestionar, reservar o automatizar.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
     <hr class="divider">
@@ -790,13 +876,13 @@
     <!-- PROJECTS -->
 <section class="section" id="proyectos" aria-labelledby="projects-title">
   <div class="container">
-    <p class="section-label i18n" data-es="// proyectos" data-en="// projects">// proyectos</p>
+    <p class="section-label i18n" data-es="// casos reales" data-en="// real cases">// casos reales</p>
     <h2 class="section-title i18n" id="projects-title"
-        data-es="Proyectos destacados" data-en="Featured projects">Proyectos destacados</h2>
+        data-es="Construcciones que ya salieron a producción" data-en="Builds that reached production">Construcciones que ya salieron a producción</h2>
     <p class="section-desc i18n"
-       data-es="Aplicaciones reales en producción, construidas de principio a fin."
-       data-en="Real applications in production, built end-to-end.">
-      Aplicaciones reales en producción, construidas de principio a fin.
+       data-es="Casos donde apliqué lo aprendido como estudiante y autodidacta para resolver necesidades concretas."
+       data-en="Cases where I applied what I learned as a student and self-taught developer to solve concrete needs.">
+      Casos donde apliqué lo aprendido como estudiante y autodidacta para resolver necesidades concretas.
     </p>
     <div class="projects-grid">
 
@@ -812,13 +898,13 @@
           </div>
         </div>
         <p class="project-desc i18n"
-           data-es="Aplicación SaaS de gestión de turnos con inteligencia artificial. Permite a negocios administrar reservas, clientes y agenda de forma automatizada. Disponible como app móvil en Google Play Store."
-           data-en="AI-powered appointment management SaaS. Allows businesses to manage bookings, clients and schedules in an automated way. Available as a mobile app on Google Play Store.">
-          Aplicación SaaS de gestión de turnos con inteligencia artificial. Permite a negocios administrar reservas, clientes y agenda de forma automatizada. Disponible como app móvil en Google Play Store.
+           data-es="Aplicación SaaS de gestión de turnos. Permite a negocios administrar reservas, clientes y agenda de forma automatizada. Disponible como PWA instalable en Android."
+           data-en="Appointment management SaaS. Allows businesses to manage bookings, clients and schedules in an automated way. Available as an installable PWA on Android.">
+          Aplicación SaaS de gestión de turnos. Permite a negocios administrar reservas, clientes y agenda de forma automatizada. Disponible como PWA instalable en Android.
         </p>
         <div class="project-tags">
           <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span>
-          <span class="tag">IA</span><span class="tag">PWA</span><span class="tag">Android</span>
+          <span class="tag">PWA</span><span class="tag">Android</span>
           <span class="tag">Railway</span>
         </div>
         <div class="project-links-row">
@@ -906,13 +992,13 @@
     <!-- SERVICES -->
     <section class="section" id="servicios" aria-labelledby="services-title">
       <div class="container">
-        <p class="section-label i18n" data-es="// servicios" data-en="// services">// servicios</p>
+        <p class="section-label i18n" data-es="// soluciones" data-en="// solutions">// soluciones</p>
         <h2 class="section-title i18n" id="services-title"
-            data-es="¿En qué puedo ayudarte?" data-en="How can I help?">¿En qué puedo ayudarte?</h2>
+            data-es="Qué puedo construir o mejorar" data-en="What I can build or improve">Qué puedo construir o mejorar</h2>
         <p class="section-desc i18n"
-           data-es="Ofrezco soluciones completas: desde el diseño hasta el deploy en producción."
-           data-en="End-to-end solutions — from design to production deployment.">
-          Ofrezco soluciones completas: desde el diseño hasta el deploy en producción.
+           data-es="Trabajo con proyectos concretos, alcance claro y foco en entregar algo usable, mantenible y desplegado."
+           data-en="I work with concrete projects, clear scope and focus on shipping something usable, maintainable and deployed.">
+          Trabajo con proyectos concretos, alcance claro y foco en entregar algo usable, mantenible y desplegado.
         </p>
         <div class="services-grid">
           <div class="service-card reveal">
@@ -970,14 +1056,14 @@
     <hr class="divider">
 
     <!-- ABOUT -->
-    <section class="section" id="sobre-mi" aria-labelledby="about-title">
+    <section class="section" id="trayectoria" aria-labelledby="about-title">
       <div class="container">
         <div class="about-grid">
           <div class="about-text reveal">
             <div>
-              <p class="section-label i18n" data-es="// sobre mí" data-en="// about me">// sobre mí</p>
+              <p class="section-label i18n" data-es="// perfil" data-en="// profile">// perfil</p>
               <h2 class="section-title i18n" id="about-title"
-                  data-es="Desarrollador autodidacta" data-en="Self-taught developer">Desarrollador autodidacta</h2>
+                  data-es="Estudiante, autodidacta y orientado a producto" data-en="Student, self-taught and product-oriented">Estudiante, autodidacta y orientado a producto</h2>
             </div>
             <p class="about-p i18n"
                data-es="Estudiante de la <strong>Tecnicatura en Programación en UTN</strong>. Aprendí a programar de forma autodidacta y apliqué ese conocimiento construyendo proyectos reales para clientes reales desde el primer día."
@@ -1083,9 +1169,9 @@
                           placeholder="Contame brevemente sobre tu proyecto, tiempos y presupuesto aproximado."></textarea>
               </div>
               <p class="form-help i18n"
-                 data-es="El mensaje se enviará directo a mi email con EmailJS."
-                 data-en="The message will be sent directly to my email with EmailJS.">
-                El mensaje se enviará directo a mi email con EmailJS.
+                 data-es="Completá el formulario y te respondo a la brevedad."
+                 data-en="Complete the form and I will reply shortly.">
+                Completá el formulario y te respondo a la brevedad.
               </p>
               <button type="submit" class="btn-primary">
                 <i data-lucide="send" width="16" height="16" aria-hidden="true"></i>
