@@ -242,6 +242,8 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
+      .nav-inner { padding: 0 var(--space-4); gap: var(--space-3); }
+      .mobile-menu { padding: var(--space-4); }
     }
     @media (max-width: 560px) {
       .nav-social { display: none; }
@@ -431,7 +433,8 @@
     }
 
     .profile-strip {
-      margin-top: calc(var(--space-8) * -1);
+      margin-top: var(--space-8);
+      margin-bottom: var(--space-16);
       position: relative;
       z-index: 2;
     }
@@ -446,6 +449,52 @@
       border-radius: var(--radius-xl);
       padding: var(--space-6);
       box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition), background var(--transition);
+    }
+    .profile-card::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), transparent 72%);
+      opacity: 0.55;
+    }
+    .profile-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 18% 0%, var(--accent-glow), transparent 36%);
+      opacity: 0;
+      transition: opacity var(--transition);
+      pointer-events: none;
+    }
+    .profile-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: var(--card-shadow-hover);
+      background: linear-gradient(180deg, var(--surface), color-mix(in oklch, var(--surface) 62%, var(--surface-2)));
+    }
+    .profile-card:hover::after {
+      opacity: 1;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .profile-card {
+        animation: card-rise 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .profile-card:nth-child(2) { animation-delay: 90ms; }
+      .profile-card:nth-child(3) { animation-delay: 180ms; }
+    }
+    @keyframes card-rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .profile-card:nth-child(2) {
+      transition-delay: 35ms;
+    }
+    .profile-card:nth-child(3) {
+      transition-delay: 70ms;
     }
     .profile-card span {
       display: block;
@@ -468,21 +517,36 @@
     }
 
     @media (max-width: 860px) {
-      .hero { min-height: auto; padding: calc(60px + var(--space-16)) 0 var(--space-16); }
+      .hero { min-height: auto; padding: calc(60px + var(--space-12)) 0 var(--space-12); }
       .hero-layout { grid-template-columns: 1fr; }
       .hero-panel { max-width: none; order: 2; }
-      .profile-strip { margin-top: 0; }
+      .profile-strip { margin-top: var(--space-6); }
       .profile-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 520px) {
       .container { padding: 0 var(--space-4); }
+      .section { padding: var(--space-16) 0; }
+      .hero { padding: calc(60px + var(--space-10)) 0 var(--space-12); }
+      .hero-grid { background-size: 52px 52px; opacity: 0.36; }
+      .hero-glow { top: 4%; right: -35%; width: 360px; height: 260px; }
+      .hero-badge { margin-bottom: var(--space-4); max-width: 100%; }
+      .hero h1 { font-size: clamp(2.25rem, 12vw, 3.4rem); line-height: 1.02; margin-bottom: var(--space-5); }
+      .hero-sub { font-size: var(--text-base); margin-bottom: var(--space-8); }
       .hero-panel, .profile-card { padding: var(--space-5); }
+      .panel-name { font-size: var(--text-lg); }
       .hero-ctas { flex-direction: column; }
       .hero-ctas .btn-primary,
       .hero-ctas .btn-ghost { justify-content: center; width: 100%; }
-      .hero-stack { gap: var(--space-1); }
-      .stack-chip { flex: 1 1 auto; text-align: center; }
+      .hero-stack { gap: var(--space-2); margin-top: var(--space-8); }
+      .hero-stack-label { width: 100%; margin-right: 0; }
+      .stack-chip { flex: 0 0 auto; text-align: center; }
+      .profile-strip { margin-top: var(--space-8); }
+      .profile-strip { margin-bottom: var(--space-12); }
+      .profile-grid { gap: var(--space-3); }
+      .profile-card { border-radius: var(--radius-lg); }
+      .profile-card:hover { transform: translateY(-2px); }
+      .profile-card p { line-height: 1.6; }
     }
 
     /* ── PROJECTS ───────────────────────────────────────── */
@@ -582,6 +646,9 @@
     @media (max-width: 520px) {
       .project-card { padding: var(--space-6); }
       .project-header { flex-direction: column; }
+      .project-title { font-size: var(--text-base); }
+      .project-desc { line-height: 1.65; }
+      .project-tags { gap: var(--space-1); }
       .project-links-row { flex-wrap: wrap; }
       .proj-btn { flex: 1 1 140px; justify-content: center; }
     }
@@ -644,6 +711,7 @@
       background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl);
       padding: var(--space-8); font-family: var(--font-mono); font-size: var(--text-xs);
       box-shadow: var(--card-shadow);
+      overflow-x: auto;
     }
     .code-header {
       display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-6);
@@ -661,6 +729,7 @@
     @media (max-width: 520px) {
       .about-stats { grid-template-columns: 1fr; }
       .about-right, .stat-box { padding: var(--space-5); }
+      .code-line { white-space: nowrap; }
     }
 
     /* ── CONTACT ────────────────────────────────────────── */
@@ -799,8 +868,10 @@
       .contact-card { align-items: flex-start; }
       .contact-card-value { overflow-wrap: anywhere; }
       .contact-form .btn-primary { justify-content: center; width: 100%; }
-      .form-socials { align-items: flex-start; flex-direction: column; }
-      .form-socials-links { width: 100%; justify-content: flex-end; }
+      .form-socials { align-items: flex-start; flex-direction: column; gap: var(--space-3); }
+      .form-socials-links { width: 100%; justify-content: flex-start; }
+      .form-social-btn { width: 44px; height: 44px; }
+      .form-field textarea { min-height: 120px; }
     }
 
     /* ── FOOTER ─────────────────────────────────────────── */
@@ -830,6 +901,31 @@
     }
     .footer-links a:hover { color: var(--accent); background: var(--surface-2); border-color: var(--border-hover); transform: translateY(-1px); }
     .footer-links .brand-icon { font-size: 1rem; }
+
+    @media (max-width: 640px) {
+      .section-title { font-size: clamp(1.6rem, 8vw, 2.15rem); }
+      .section-desc { margin-bottom: var(--space-8); }
+      .profile-card,
+      .project-card,
+      .service-card,
+      .stat-box,
+      .about-right,
+      .contact-form {
+        box-shadow: 0 1px 2px rgba(0,0,0,0.16);
+      }
+      .project-card:hover,
+      .service-card:hover,
+      .stat-box:hover,
+      .contact-card:hover {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .footer { padding: var(--space-6) 0; }
+      .footer-inner { justify-content: center; text-align: center; }
+      .footer-links { justify-content: center; width: 100%; }
+    }
 
     /* ── DIVIDER ────────────────────────────────────────── */
     .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
@@ -903,13 +999,13 @@
             <p class="panel-label i18n" data-es="Perfil en crecimiento" data-en="Growing profile">Perfil en crecimiento</p>
             <h2 class="panel-name">Matias Abalo</h2>
             <p class="panel-role i18n"
-               data-es="Estudiante de programación, desarrollador autodidacta y constructor de proyectos web en producción."
+               data-es="Estudiante de programación, autodidacta y constructor de proyectos web en producción."
                data-en="Programming student, self-taught developer and builder of production web projects.">
-              Estudiante de programación, desarrollador autodidacta y constructor de proyectos web en producción.
+              Estudiante de programación, autodidacta y constructor de proyectos web en producción.
             </p>
             <ul class="panel-list" role="list">
               <li class="i18n" data-es="Tecnicatura en Programación · UTN" data-en="Computer Programming degree · UTN">Tecnicatura en Programación · UTN</li>
-              <li class="i18n" data-es="Aprendizaje autodidacta aplicado a clientes reales" data-en="Self-taught learning applied to real clients">Aprendizaje autodidacta aplicado a clientes reales</li>
+              <li class="i18n" data-es="Aprendizaje aplicado a clientes reales" data-en="Self-taught learning applied to real clients">Aprendizaje aplicado a clientes reales</li>
               <li class="i18n" data-es="Python, Flask, PostgreSQL y despliegue cloud" data-en="Python, Flask, PostgreSQL and cloud deployment">Python, Flask, PostgreSQL y despliegue cloud</li>
             </ul>
           </aside>
@@ -917,22 +1013,22 @@
           <div class="hero-content">
             <div class="hero-badge" aria-label="Available for work">
               <span class="pulse" aria-hidden="true"></span>
-              <span class="i18n" data-es="Portfolio técnico · proyectos reales" data-en="Technical portfolio · real projects">Portfolio técnico · proyectos reales</span>
+              <span class="i18n" data-es="Portfolio técnico · casos reales" data-en="Technical portfolio · real projects">Portfolio técnico · casos reales</span>
             </div>
             <p class="hero-kicker i18n"
-               data-es="Desarrollo web, automatización y sistemas para negocios"
+               data-es="Desarrollo web, automatización y sistemas"
                data-en="Web development, automation and business systems">
-              Desarrollo web, automatización y sistemas para negocios
+              Desarrollo web, automatización y sistemas
             </p>
             <h1 class="i18n"
-                data-es="Aprendo, construyo y despliego soluciones informáticas."
-                data-en="I learn, build and deploy software solutions.">
-              Aprendo, construyo y despliego soluciones informáticas.
+                data-es="Desarrollo soluciones informáticas."
+                data-en="I develop software solutions.">
+              Desarrollo soluciones informáticas.
             </h1>
             <p class="hero-sub i18n"
-               data-es="Estoy formándome en programación y, en paralelo, construyo aplicaciones completas: catálogos, SaaS, paneles administrativos y automatizaciones con foco en utilidad real."
+               data-es="Estoy formándome en programación mientras construyo aplicaciones completas: catálogos, SaaS, paneles administrativos y automatizaciones con foco en utilidad real."
                data-en="I am studying programming while building complete applications: catalogs, SaaS products, admin panels and automations focused on real utility.">
-              Estoy formándome en programación y, en paralelo, construyo aplicaciones completas: catálogos, SaaS, paneles administrativos y automatizaciones con foco en utilidad real.
+              Estoy formándome en programación mientras construyo aplicaciones completas: catálogos, SaaS, paneles administrativos y automatizaciones con foco en utilidad real.
             </p>
             <div class="hero-ctas">
               <a href="#proyectos" class="btn-primary">
